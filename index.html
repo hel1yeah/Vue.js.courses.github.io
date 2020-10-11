@@ -33,9 +33,7 @@
   <section class="section">
     <div id="app">
 
-      <h2>
-        <a v-bind:href="url" target="_blank">{{url}}</a>
-      </h2>
+      <h2 v-html="link"></h2>
 
     </div>
   </section>
@@ -44,7 +42,7 @@
     let app = new Vue({
       el: '#app',
       data: {
-        url: 'https://google.com',
+        link: '<a target="_blank" href="https://translate.google.ru/"> google  </a>',
       },
     });
   </script>
