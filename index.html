@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+<section class="section">
+<div id="app">
+  <input type="text" v-on:input="changeName">
+  <h1>hello {{name}}!!!</h1>
+</div>
+</section>
+
+
+
+
+
+<script>
+  let app = new Vue({
+    el: '#app',
+    data:{
+      name: 'Vue.js'
+    },
+    methods:{
+      changeName(event){
+        this.name = event.target.value;
+      },
+    }
+
+  })
+</script>
+</body>
+</html>
