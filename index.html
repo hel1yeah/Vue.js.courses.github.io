@@ -12,28 +12,31 @@
 <body>
 <section class="section">
 <div id="app">
-  <input type="text" v-on:input="changeName">
-  <h1>hello {{name}}!!!</h1>
+
+  <h1>String: {{name}}!!!</h1>
+  <h1>Sum: {{10 + 50}}</h1>
+  <h1>method: {{ sayHello() }} </h1>
+  <h1>if Statement :{{ isOk ? 'true' : false }}</h1>
+  <h1>function :{{ string.split('').reverse().join('') }}</h1>
+
 </div>
 </section>
-
-
-
-
-
 <script>
   let app = new Vue({
     el: '#app',
     data:{
-      name: 'Vue.js'
+      name: 'Vue.js',
+      number: 100,
+      isOk: false,
+      string: 'my Name is Yura'
     },
     methods:{
-      changeName(event){
-        this.name = event.target.value;
-      },
+      sayHello(){
+        return 'i am function';
+      }
     }
 
-  })
+  });
 </script>
 </body>
 </html>
