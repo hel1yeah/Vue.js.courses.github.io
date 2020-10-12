@@ -33,14 +33,9 @@
   <section class="section">
     <div id="app">
 
-      <h2 >
-        <a :href="url" target="_blank">Google</a>
-        
-      </h2>
+      <input v-model="text" type="text">
 
-      <h2> Counter: {{counter}} </h2>
-
-        <button @click="counter++">button counter</button>
+      <h1>{{text}} </h1>
 
     </div>
   </section>
@@ -49,11 +44,12 @@
     let app = new Vue({
       el: '#app',
       data: {
-        url: 'https://www.google.com',
-        counter: 0,
+        text: 'Текст с Input',
       },
       methods: {
-
+        remuvetexth1(event){
+          this.text = event.target.value;
+        }
       }
     });
   </script>
