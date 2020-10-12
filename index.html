@@ -27,15 +27,35 @@
       display: block;
       margin: 0 auto;
       width: 400px;
+
     }
+    .circle {
+      display: block;
+      margin: auto auto;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 1px solid darkorchid;
+    }
+
+    .red {background-color: firebrick;}
+    .blue {background-color: darkblue;}
+    .green {background-color: darkcyan;}
   </style>
 
   <section class="section">
     <div id="app">
 
-      <input v-model="text" type="text">
+      <div 
+      :class="{red: isActive, green: !isActive}" 
+      @click="isActive = !isActive" 
+      class="circle">
+      </div>
 
-      <h1>{{text}} </h1>
+      <div class="circle" :class="color">
+
+      </div>
+      <input type="text" v-model="color" >
 
     </div>
   </section>
@@ -44,14 +64,22 @@
     let app = new Vue({
       el: '#app',
       data: {
-        text: 'Текст с Input',
+        isActive: false,
+        color: '',
+      },
+      computed: {
+          reColor(){
+          let value = event.target.value
+          if (value == 'red' || value == 'blue' || value == 'green' ) {
+            this.color = value
+          }
+        }
       },
       methods: {
-        remuvetexth1(event){
-          this.text = event.target.value;
-        }
+
       }
     });
+
   </script>
 </body>
 
