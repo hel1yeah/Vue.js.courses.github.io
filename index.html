@@ -33,9 +33,14 @@
   <section class="section">
     <div id="app">
 
-      <h2> {{tite}} = {{counter}}</h2>
-      <button v-on:click="riseCounter(5, 'изменено на 5', $event)">Cчётчик +5</button>
-      <button v-on:click="riseCounter(10, 'изменено на 10', $event)">Cчётчик +10</button>
+      <h2>
+        <a v-on:click.prevent="" href="http://google.com" target="_blank">google</a>
+      </h2>
+
+        <h3 v-on:mousemove="coordXY">
+          X: {{ x }} / Y: {{ y }}
+          <span v-on:mousemove.stop> STOP</span>
+        </h3>
 
     </div>
   </section>
@@ -44,20 +49,16 @@
     let app = new Vue({
       el: '#app',
       data: {
-        counter: 0,
-        tite: 'Счётчик',
+        x: 0,
+        y: 0,
+        
       },
       methods: {
-        riseCounter(num, str, event){
-          this.counter += num;
-          this.tite = str;
-          if ( num == 5) {
-            event.target.style.color = 'firebrick';
-          } else if ( num == 10) {
-            event.target.style.color = 'green';
-          }
+        coordXY(event){
+          this.x = event.clientX;
+          this.y = event.clientY;
         }
-      },
+      }
     });
   </script>
 </body>
