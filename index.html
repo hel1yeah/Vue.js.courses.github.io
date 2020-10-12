@@ -33,16 +33,14 @@
   <section class="section">
     <div id="app">
 
-      <h2>
-        <a v-on:click.prevent="" href="http://google.com" target="_blank">google</a>
+      <h2 >
+        <a :href="url" target="_blank">Google</a>
+        
       </h2>
 
-        <h3 v-on:mousemove="coordXY">
-          X: {{ x }} / Y: {{ y }}
-          <span v-on:mousemove.stop> STOP</span>
-        </h3>
+      <h2> Counter: {{counter}} </h2>
 
-        <input v-on:keyup.enter="valueInput" type="text" >
+        <button @click="counter++">button counter</button>
 
     </div>
   </section>
@@ -51,18 +49,11 @@
     let app = new Vue({
       el: '#app',
       data: {
-        x: 0,
-        y: 0,
-        
+        url: 'https://www.google.com',
+        counter: 0,
       },
       methods: {
-        coordXY(event){
-          this.x = event.clientX;
-          this.y = event.clientY;
-        },
-        valueInput: function(event){
-          alert(event.target.value)
-        }
+
       }
     });
   </script>
