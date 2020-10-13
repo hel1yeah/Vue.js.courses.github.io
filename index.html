@@ -50,28 +50,34 @@
     .green {
       background-color: darkcyan;
     }
+
+    li {
+      list-style-type: none;
+    }
   </style>
 
   <section class="section">
     <div id="app">
-      <template v-show="isVisible">
-        <h1>Im am title</h1>
-        <p>Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Дороге свой мир великий.
-          Текст безопасную, путь, послушавшись грустный то букв родного он вскоре, своего жаренные вершину агентство
-          над. Большой.</p>
-      </template>
+      <ul>
+        <li v-for="(person, index) of people">{{person.name}} {{index+1}} <br> {{person.age}} </li>
 
-      <template v-show="!isVisible">
-        <h1 style="color:red">Im am title 22222</h1>
-        <p style="color:blueviolet">2222 Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные
-          тексты. Дороге свой мир великий. Текст безопасную, путь, послушавшись грустный то букв родного он вскоре,
-          своего жаренные вершину агентство над. Большой. </p>
-      </template>
+      </ul>
+      <hr>
+      <ol>
+        <li v-for="num of 4 ">
+          {{num}}
+        </li>
+      </ol>
+      <hr>
+      <ul>
+        <li v-for="value in persons">
+          <h6 :style="{
+          'line-height' : 10 + 'px',
+          'margin': 5 + 'px'
+        }">{{value}}</h6>
 
-      <h1 v-show="isVisible">1</h1>
-      <h2 v-show="!isVisible">2</h2>
-
-      <button @click="isVisible = !isVisible">button</button>
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -79,7 +85,16 @@
     let app = new Vue({
       el: '#app',
       data: {
-        isVisible: true
+        people: [
+          { name: 'vlad', age: 19 },
+          { name: 'dimas', age: 1234 },
+          { name: 'yures', age: 23 },
+        ],
+        persons: {
+          name: 'max',
+          age: 34,
+          job: 'Vue.js'
+        }
 
       },
       computed: {
