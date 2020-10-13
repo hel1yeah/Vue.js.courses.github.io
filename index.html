@@ -29,6 +29,7 @@
       width: 400px;
 
     }
+
     .circle {
       display: block;
       margin: auto auto;
@@ -38,25 +39,39 @@
       border: 1px solid darkorchid;
     }
 
-    .red {background-color: firebrick;}
-    .blue {background-color: darkblue;}
-    .green {background-color: darkcyan;}
+    .red {
+      background-color: firebrick;
+    }
+
+    .blue {
+      background-color: darkblue;
+    }
+
+    .green {
+      background-color: darkcyan;
+    }
   </style>
 
   <section class="section">
     <div id="app">
-      <template v-if="isVisible">
+      <template v-show="isVisible">
         <h1>Im am title</h1>
-      <p>Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Дороге свой мир великий. Текст безопасную, путь, послушавшись грустный то букв родного он вскоре, своего жаренные вершину агентство над. Большой.</p>
+        <p>Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Дороге свой мир великий.
+          Текст безопасную, путь, послушавшись грустный то букв родного он вскоре, своего жаренные вершину агентство
+          над. Большой.</p>
       </template>
-      
-      <template v-else="isVisible">
-      <h1 style="color:red" >Im am title 22222</h1>
-      <p style="color:blueviolet">2222 Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Дороге свой мир великий. Текст безопасную, путь, послушавшись грустный то букв родного он вскоре, своего жаренные вершину агентство над. Большой.
-      </template>
-      </p>
 
-      <button  @click="isTrue()" >button</button>
+      <template v-show="!isVisible">
+        <h1 style="color:red">Im am title 22222</h1>
+        <p style="color:blueviolet">2222 Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные
+          тексты. Дороге свой мир великий. Текст безопасную, путь, послушавшись грустный то букв родного он вскоре,
+          своего жаренные вершину агентство над. Большой. </p>
+      </template>
+
+      <h1 v-show="isVisible">1</h1>
+      <h2 v-show="!isVisible">2</h2>
+
+      <button @click="isVisible = !isVisible">button</button>
     </div>
   </section>
 
@@ -64,22 +79,14 @@
     let app = new Vue({
       el: '#app',
       data: {
-        isVisible: false
-        
+        isVisible: true
+
       },
       computed: {
 
       },
       methods: {
-        isTrue(){
-          if (this.isVisible) {
-            this.isVisible = false;
-          }
-          else  {
-            this.isVisible = true;
-          }
-        }
-        
+
       },
     })
 
