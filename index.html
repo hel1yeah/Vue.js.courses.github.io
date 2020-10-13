@@ -45,14 +45,18 @@
 
   <section class="section">
     <div id="app">
+      <template v-if="isVisible">
+        <h1>Im am title</h1>
+      <p>Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Дороге свой мир великий. Текст безопасную, путь, послушавшись грустный то букв родного он вскоре, своего жаренные вершину агентство над. Большой.</p>
+      </template>
+      
+      <template v-else="isVisible">
+      <h1 style="color:red" >Im am title 22222</h1>
+      <p style="color:blueviolet">2222 Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Дороге свой мир великий. Текст безопасную, путь, послушавшись грустный то букв родного он вскоре, своего жаренные вершину агентство над. Большой.
+      </template>
+      </p>
 
-      <div class="circle" :style="circleClasses" ></div>
-      <div class="circle"  :style="[circleClasses, {'width': height + 'px'} ]"></div>
-
-      <input type="text" v-model="color">
-      <input type="number" v-model="height">
-
-
+      <button  @click="isTrue()" >button</button>
     </div>
   </section>
 
@@ -60,17 +64,22 @@
     let app = new Vue({
       el: '#app',
       data: {
-        color: '',
-        height: '100',
-
+        isVisible: false
+        
       },
       computed: {
-        circleClasses () {
-          return {
-            'background': this.color, 
-            'height': this.height + 'px'
+
+      },
+      methods: {
+        isTrue(){
+          if (this.isVisible) {
+            this.isVisible = false;
+          }
+          else  {
+            this.isVisible = true;
           }
         }
+        
       },
     })
 
