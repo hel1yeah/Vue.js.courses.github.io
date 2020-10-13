@@ -46,16 +46,12 @@
   <section class="section">
     <div id="app">
 
-      <div 
-      :class="{red: isActive, green: !isActive}" 
-      @click="isActive = !isActive" 
-      class="circle">
-      </div>
+      <div class="circle" :style="circleClasses" ></div>
+      <div class="circle"  :style="[circleClasses, {'width': height + 'px'} ]"></div>
 
-      <div class="circle" :class="color">
+      <input type="text" v-model="color">
+      <input type="number" v-model="height">
 
-      </div>
-      <input type="text" v-model="color" >
 
     </div>
   </section>
@@ -64,21 +60,20 @@
     let app = new Vue({
       el: '#app',
       data: {
-        isActive: false,
         color: '',
+        height: '100',
+
       },
       computed: {
-          reColor(){
-          let value = event.target.value
-          if (value == 'red' || value == 'blue' || value == 'green' ) {
-            this.color = value
+        circleClasses () {
+          return {
+            'background': this.color, 
+            'height': this.height + 'px'
           }
         }
       },
-      methods: {
+    })
 
-      }
-    });
 
   </script>
 </body>
