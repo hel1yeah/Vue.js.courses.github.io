@@ -60,38 +60,48 @@
   <section class="section">
     <div id="app">
 
-      <h2 ref="newcolorText">{{ title }}</h2>
-      <button @click="newTitle">newTitle</button>
+      <h2 >{{ title }}</h2>
+      <button @click="title = 'change item'">newTitle</button>
+      <button @click="doDestroy">Destroy</button>
 
     </div>
   </section>
 
   <script>
-
-
-
-
     let app = new Vue({
       el: '#app',
       data: {
         title: 'hello i am vue',
-        color: '',
       },
       methods: {
-        newTitle(){
-          let min = 0;
-          let max = 255;
-
-          let randomColorRed = Math.floor(Math.random() * (max - min + 1)) + min;
-          let randomColorGreen = Math.floor(Math.random() * (max - min + 1)) + min;
-          let randomColorBlue = Math.floor(Math.random() * (max - min + 1)) + min;
-          let randomAlpha = (Math.random() * (1 - 0) + 0).toFixed(2);
-          
-          this.color = `rgba(${randomColorRed}, ${randomColorGreen}, ${randomColorBlue}, ${randomAlpha})`;
-          
-          this.$refs.newcolorText.style.color = `${this.color}`
+        doDestroy: function(){
+          this.$destroy()
         }
       },
+        beforeCreate() {
+          console.log('before create');
+        },
+        created() {
+          console.log('created');
+        },
+        beforeMount() {
+          console.log('before Mount');
+        },
+        mounted() {
+          console.log('mounted');
+        },
+        beforeUpdate() {
+          console.log('before Update');
+        },
+        updated() {
+          console.log('updated');
+        },
+        beforeDestroy() {
+          console.log('before Destroy');
+        },
+        destroyed() {
+          console.log('destroyed');
+        },
     })
 
   
