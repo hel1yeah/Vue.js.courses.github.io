@@ -58,31 +58,30 @@
 
   <section class="section">
     <div id="app">
-      
-      <h2 ref="heading">{{title}}</h2>
-      <h2 ref="heading2">{{title}}</h2>
-      <button @click="updateFirstTitle()" >UPDATE TITLE</button>
-      
+
+      <h2>{{ title }}</h2>
+
     </div>
   </section>
 
   <script>
-    
+
+
+
+
     let app = new Vue({
-      el: '#app',
       data: {
-        title: 'hello i am vue',
+        title: 'hello i am vue'
       },
       methods: {
-        updateFirstTitle(){
-          this.title = 'new title';
-          this.$refs.heading.style.color = 'firebrick'
-          console.log(this.$refs.heading);
-        }
-      },
-    })
-   
 
+      },
+      template: ' <h2>{{ title }}</h2> '
+    })
+
+  app.$mount('#app')
+
+  
   </script>
 </body>
 
