@@ -58,46 +58,40 @@
 
   <section class="section">
     <div id="app">
-      <h2>Counter {{counter}} \ {{counter2}} </h2>
-      <h2>{{computedResult}}</h2>
+      <h2>{{title}}</h2>
+      <button @click="newTitle()">Update Vue 1 El app </button>
+      <h2>{{title2}}</h2>
+    </div>
 
-      <button @click="add()" >Add</button>
-      <button @click="sub()">Sub</button>
-      <button @click="counter2++">add counter 2 </button>
+    <div id="app_next">
+      
+      <button @click="newTitle2()">Update Vue 1 El app_next </button>
     </div>
   </section>
 
   <script>
+    
     let app = new Vue({
       el: '#app',
-      data: {
-        counter: 0,
-        counter2: 0,
-
+      data:{
+        title: 'Hello i am Vue.js!',
+        title2: 'Hello i am Vue.js! title2'
       },
       methods: {
-        add: function () {
-          this.counter++;
-        },
-        sub(){
-          this.counter--
-          
-        },
-        result: function(){
-          console.log('test log');
-          // return this.counter < 3 ? 'More then 3' : 'less then 3';
+        newTitle: function(){
+          this.title = 'NEW Hello i am Vue.js!';
         }
+      },
+    })
 
+    let app_next = new Vue({
+      el: '#app_next',
+      data: {
+        
       },
-      computed: {
-        computedResult(){
-          // console.log('computedResult');
-          return this.counter < 3 ? ' More then 3' : 'less then 3';
-        }
-      },
-      watch: {
-        counter(){
-          console.log(this.counter);
+      methods: {
+        newTitle2: function () {
+          app.title2 = 'NEW Hello i am Vue.js newTitle2!';
         }
       },
     })
