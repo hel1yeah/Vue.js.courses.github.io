@@ -1,39 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style.css">
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 </head>
+
 <body>
-<section class="section">
-<div id="app">
-  <input type="text" v-on:input="changeName">
-  <h1>hello {{name}}!!!</h1>
-</div>
-</section>
 
-
-
-
-
-<script>
-  let app = new Vue({
-    el: '#app',
-    data:{
-      name: 'Vue.js'
-    },
-    methods:{
-      changeName(event){
-        this.name = event.target.value;
-      },
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
     }
 
-  })
-</script>
+    #app {
+      display: block;
+      margin: 0 auto;
+    }
+
+    .section {
+      display: block;
+      margin: 0 auto;
+      width: 400px;
+
+    }
+
+    .circle {
+      display: block;
+      margin: auto auto;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 1px solid darkorchid;
+    }
+
+    .red {
+      background-color: firebrick;
+    }
+
+    .blue {
+      background-color: darkblue;
+    }
+
+    .green {
+      background-color: darkcyan;
+    }
+
+    li {
+      list-style-type: none;
+      color: rgba(red, green, blue, alpha);
+    }
+  </style>
+
+  <section class="section">
+    <div id="app">
+
+      <h2 >{{ title }}</h2>
+      <button @click="title = 'change item'">newTitle</button>
+      <button @click="doDestroy">Destroy</button>
+
+    </div>
+  </section>
+
+  <script>
+    let app = new Vue({
+      el: '#app',
+      data: {
+        title: 'hello i am vue',
+      },
+      methods: {
+        doDestroy: function(){
+          this.$destroy()
+        }
+      },
+        beforeCreate() {
+          console.log('before create');
+        },
+        created() {
+          console.log('created');
+        },
+        beforeMount() {
+          console.log('before Mount');
+        },
+        mounted() {
+          console.log('mounted');
+        },
+        beforeUpdate() {
+          console.log('before Update');
+        },
+        updated() {
+          console.log('updated');
+        },
+        beforeDestroy() {
+          console.log('before Destroy');
+        },
+        destroyed() {
+          console.log('destroyed');
+        },
+    })
+
+  
+  </script>
 </body>
+
 </html>
