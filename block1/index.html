@@ -53,58 +53,20 @@
 
     li {
       list-style-type: none;
-      color: rgba(red, green, blue, alpha);
+      
     }
   </style>
 
   <section class="section">
     <div id="app">
 
-      <h2 >{{ title }}</h2>
-      <button @click="title = 'change item'">newTitle</button>
-      <button @click="doDestroy">Destroy</button>
+     
 
     </div>
   </section>
 
   <script>
-    let app = new Vue({
-      el: '#app',
-      data: {
-        title: 'hello i am vue',
-      },
-      methods: {
-        doDestroy: function(){
-          this.$destroy()
-        }
-      },
-        beforeCreate() {
-          console.log('before create');
-        },
-        created() {
-          console.log('created');
-        },
-        beforeMount() {
-          console.log('before Mount');
-        },
-        mounted() {
-          console.log('mounted');
-        },
-        beforeUpdate() {
-          console.log('before Update');
-        },
-        updated() {
-          console.log('updated');
-        },
-        beforeDestroy() {
-          console.log('before Destroy');
-        },
-        destroyed() {
-          console.log('destroyed');
-        },
-    })
-
-  
+      
   </script>
 </body>
 
