@@ -1,0 +1,12 @@
+body{
+  font-family: 'Roboto', sans-serif;
+}
+#app{
+  display: block;
+  margin: 0 auto;
+}
+.section{
+  display: block;
+  margin: 0 auto;
+  width: 400px;
+}
