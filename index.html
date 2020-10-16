@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  
+
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+
+    }
+
+    #app {
+      display: block;
+      margin: 0 auto;
+    }
+
+      .section {
+        display: block;
+        margin: 0 auto;
+        width: 400px;
+
+    }
+
+    .circle {
+      display: block;
+      margin: auto auto;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 1px solid darkorchid;
+    }
+
+    .red {
+      background-color: firebrick;
+    }
+
+    .blue {
+      background-color: darkblue;
+    }
+
+    .green {
+      background-color: darkcyan;
+    }
+
+    li {
+      list-style-type: none;
+
+    }
+  </style>
+
+  <section class="section ">
+    <div id="app">
+      <my-counter></my-counter>
+      <my-counter></my-counter>
+      <my-counter></my-counter>
+      <my-counter></my-counter>
+    </div>
+  </section>
+
+  <script>
+
+    Vue.component('my-counter', {
+      template: `
+      
+      <div style="border: 1px solid black;padding: 10px;">
+        <h2>counter: {{counter}} </h2>
+        <button v-on:click="counter++">add one counter 
+        </button>
+      </div>
+      
+      `,
+
+      data: function () {
+        return {
+          counter: 0,
+        }
+      },
+      methods: {
+        add(){
+          this.counter++
+        }
+      },
+    })
+
+    new Vue({
+      el: '#app',
+    })
+  </script>
+</body>
+
+</html>
