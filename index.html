@@ -65,16 +65,14 @@
     <div id="app">
       <my-counter></my-counter>
       <my-counter></my-counter>
-      <my-counter></my-counter>
-      <my-counter></my-counter>
     </div>
   </section>
 
   <script>
 
     Vue.component('my-counter', {
-      template: `
-      
+      template: 
+      `
       <div style="border: 1px solid black;padding: 10px;">
         <h2>counter: {{counter}} </h2>
         <button v-on:click="counter++">add one counter 
