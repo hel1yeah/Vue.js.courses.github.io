@@ -63,31 +63,26 @@
 
   <section class="section ">
     <div id="app">
-      <my-counter></my-counter>
-      <my-counter></my-counter>
+    <template-comp v-for="comp in 20" :key="index"></template-comp>
     </div>
   </section>
 
   <script>
 
-    Vue.component('my-counter', {
-      template: 
-      `
-      <div style="border: 1px solid black;padding: 10px;">
-        <h2>counter: {{counter}} </h2>
-        <button v-on:click="counter++">add one counter 
-        </button>
+    Vue.component('template-comp', {
+      template: `
+      <div>
+        <h2 > counter: {{counter}}  </h2>
+        <button v-on:click="add"> add counter </button>
       </div>
-      
       `,
-
-      data: function () {
+      data() {
         return {
           counter: 0,
         }
       },
       methods: {
-        add(){
+        add: function() {
           this.counter++
         }
       },
@@ -95,7 +90,8 @@
 
     new Vue({
       el: '#app',
-    })
+    });
+
   </script>
 </body>
 
