@@ -63,34 +63,48 @@
 
   <section class="section ">
     <div id="app">
-    <template-comp v-for="comp in 20" :key="index"></template-comp>
+    <template-comp v-for="comp in 2" :key="index"></template-comp>
+    </div>
+    <hr>
+    <div id="app2">
+      <template-comp></template-comp>
     </div>
   </section>
 
   <script>
 
-    Vue.component('template-comp', {
-      template: `
+    let componentA = {
+        template: `
       <div>
         <h2 > counter: {{counter}}  </h2>
         <button v-on:click="add"> add counter </button>
       </div>
       `,
-      data() {
-        return {
-          counter: 0,
-        }
-      },
-      methods: {
-        add: function() {
-          this.counter++
-        }
-      },
-    })
+        data() {
+          return {
+            counter: 0,
+          }
+        },
+        methods: {
+          add: function () {
+            this.counter++
+          }
+        },
+      }
+
 
     new Vue({
       el: '#app',
+      components:{
+        'template-comp': componentA,
+      }
     });
+    new Vue({
+      el: '#app2',
+      components: {
+        'template-comp': componentA,
+      }
+    })
 
   </script>
 </body>
