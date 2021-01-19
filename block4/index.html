@@ -63,41 +63,49 @@
 
   <section class="section ">
     <div id="app">
-      <my-counter></my-counter>
-      <my-counter></my-counter>
-      <my-counter></my-counter>
-      <my-counter></my-counter>
+    <template-comp v-for="comp in 2" :key="index"></template-comp>
+    </div>
+    <hr>
+    <div id="app2">
+      <template-comp></template-comp>
     </div>
   </section>
 
   <script>
 
-    Vue.component('my-counter', {
-      template: `
-      
-      <div style="border: 1px solid black;padding: 10px;">
-        <h2>counter: {{counter}} </h2>
-        <button v-on:click="counter++">add one counter 
-        </button>
+    let componentA = {
+        template: `
+      <div>
+        <h2 > counter: {{counter}}  </h2>
+        <button v-on:click="add"> add counter </button>
       </div>
-      
       `,
+        data() {
+          return {
+            counter: 0,
+          }
+        },
+        methods: {
+          add: function () {
+            this.counter++
+          }
+        },
+      }
 
-      data: function () {
-        return {
-          counter: 0,
-        }
-      },
-      methods: {
-        add(){
-          this.counter++
-        }
-      },
-    })
 
     new Vue({
       el: '#app',
+      components:{
+        'template-comp': componentA,
+      }
+    });
+    new Vue({
+      el: '#app2',
+      components: {
+        TemplateComp: componentA,
+      }
     })
+
   </script>
 </body>
 
